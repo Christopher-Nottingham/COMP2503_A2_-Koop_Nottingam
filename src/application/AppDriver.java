@@ -10,8 +10,9 @@ public class AppDriver {
 
     CardDeck cd = new CardDeck();
     cd.createDeck();
+    cd.printCardDeck();
     
-    System.out.println(cd.getDeck());
+    
    
     
   }
