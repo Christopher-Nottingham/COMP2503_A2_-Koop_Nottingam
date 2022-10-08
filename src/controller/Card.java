@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 
 
@@ -13,6 +13,7 @@ public class Card {
     this.suit = suit;
 
   }
+  
 
 
   public String getSuit() {
@@ -59,6 +60,20 @@ public class Card {
 
   }
   
+  public void printCard(Card cardToPrint) {
+    System.out.println(cardToPrint.toString());
+  }
+  
+  
+  
+  public boolean equals (Card checkingCard) {
+    if (this.rank == checkingCard.rank && this.suit == checkingCard.suit) {
+      return true;
+    } else {
+      return false;
+    }
+    
+  }
   
   
 
