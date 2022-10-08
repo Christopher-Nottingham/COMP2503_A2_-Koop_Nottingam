@@ -8,7 +8,7 @@ public class Card {
   private int rank;
 
 
-  public Card(String suit, int rank) {
+  public Card(int rank, String suit) {
     this.rank = rank;
     this.suit = suit;
 
@@ -16,7 +16,15 @@ public class Card {
   
 
 
-  public String getSuit() {
+  public Card() {
+	// TODO Auto-generated constructor stub
+	  //this.rank=1;
+	  //this.suit="Ace of";
+}
+
+
+
+public String getSuit() {
     return suit;
   }
 
@@ -51,7 +59,7 @@ public class Card {
       name = "Queen of ";
     } else if (rank == 11) {
       name = "Jack of ";
-    }return name + rank;
+    }return name + suit;
 
 
 
