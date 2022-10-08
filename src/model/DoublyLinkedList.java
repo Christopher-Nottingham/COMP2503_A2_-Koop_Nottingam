@@ -6,7 +6,7 @@ import java.util.ListIterator;
 
 
 
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList<T> extends Card {
 
   class Node<type> {
 
