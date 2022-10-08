@@ -1,5 +1,8 @@
 package controller;
 
+import model.Card;
+import model.CardDeck;
+
 public class Shuffler {
 
 	public Card head;

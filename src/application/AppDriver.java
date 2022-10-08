@@ -1,7 +1,7 @@
 package application;
 
-import controller.Card;
-import controller.CardDeck;
+import model.Card;
+import model.CardDeck;
 
 public class AppDriver {
 
