@@ -1,9 +1,11 @@
 package controller;
 
-import model.Card;
-import model.CardDeck;
 
-public class Shuffler {
+import controller.DoublyLinkedList.Node;
+import model.*;
+
+public class Shuffler  {
+	
 
 	public Card head;
     public Card tail;
@@ -11,16 +13,30 @@ public class Shuffler {
     
 	public void shuffle(){
 		
+		
+		
 		CardDeck shuffledDeck = new CardDeck();
+		
+		
+		
 		shuffledDeck.createDeck();
 		
-		for (int i=0; i<52; i++) {
-			int card = (int) (Math.random() * (52-i));
-			//shuffledDeck.addNode(shuffledDeck.removeNode(card));
-		}
+	//	tail = shuffledDeck.linkedListCards.getTail();
+	//	head = shuffledDeck.linkedListCards.getHead();
+		
+		shuffledDeck.printCardDeck();
 		
 		
 		
+		
+		//System.out.println(head.item);
+		
+		System.out.println("/n/n/n");
+//		shuffledDeck.removeEndNode();
+//		shuffledDeck.removeEndNode();
+//		shuffledDeck.removeEndNode();
+//		shuffledDeck.printCardDeck();
+//	
 		
 	        
 }

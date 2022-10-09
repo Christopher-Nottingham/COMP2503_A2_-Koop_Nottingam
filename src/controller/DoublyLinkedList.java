@@ -1,14 +1,18 @@
-package model;
+package controller;
 
 
 
 import java.util.ListIterator;
 
+import controller.DoublyLinkedList.Node;
+import model.Card;
+import model.CardDeck;
 
 
-public class DoublyLinkedList<T> extends Card {
 
-  class Node<type> {
+public class DoublyLinkedList<T>   {
+
+  public class Node<type> {
 
     type item;
     Node<type> previous, next = null;
@@ -36,9 +40,12 @@ public class DoublyLinkedList<T> extends Card {
 
   }
 
+  
+  private Node<T> current;
 
-  Node<T> head = null;
-  Node<T> tail = null;
+  private Node<T> head;
+  private Node<T> tail;
+  private T data;
   private int size;
 
   public DoublyLinkedList() {
@@ -49,10 +56,10 @@ public class DoublyLinkedList<T> extends Card {
 
   public void addNode(T nodeTobeAdded) {
     Node<T> newNode = new Node(nodeTobeAdded);
-    if (head == null) {
+    if (getHead() == null) {
 
       head = tail = newNode;
-      head.previous = null;
+      getHead().previous = null;
       tail.next = null;
 
     } else {
@@ -69,15 +76,15 @@ public class DoublyLinkedList<T> extends Card {
 
   public void removeNode(Node<T> nodeToRemove) {
 
-    if (head == null) {
+    if (getHead() == null) {
       System.out.println("The list is empty ");
 
     }
 
     else {
-      if (head != tail) {
-        head = head.next;
-        head.previous = null;
+      if (getHead() != tail) {
+        head = getHead().next;
+        getHead().previous = null;
       } else {
         head = tail = null;
       }
@@ -86,10 +93,10 @@ public class DoublyLinkedList<T> extends Card {
   }
 
   public void removeEndNode() {
-    if (head == null) {
+    if (getHead() == null) {
       System.out.println("The list is empty ");
     } else {
-      if (head == tail) {
+      if (getHead() == tail) {
         head = tail = null;
       } else {
         tail = tail.previous;
@@ -100,19 +107,58 @@ public class DoublyLinkedList<T> extends Card {
   }
 
   public void removeStartNode() {
-    if (head == null) {
+    if (getHead() == null) {
       System.out.println("The list is empty ");
     } else {
-      head = head.next;
-      head.previous.next = null;
+      head = getHead().next;
+      getHead().previous.next = null;
     }
     size--;
 
   }
+  public DoublyLinkedList<T>.Node<T> removeNodeAtPosition(int index) {
+	  Node <T> aNode = null;
+	  Node <T> current = getHead();
+	  
+	  for (int i = 0; i < index; i++) {
+		  
+		  current = current.next;
+		  
+	  }
+	  
+	  Node<T> theCardToDelete = current;
+	  theCardToDelete.previous.next=null;
+	  
+	  
+	  return theCardToDelete;
+	  
+	
+
+	  
+	 
+	  
+	  
+	  
+
+    }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	//return aCard;
+	  
+  
+  
+  
+  
+  
 
 
   public void printNodes() {
-    Node<T> current = head;
+    Node<T> current = getHead();
     while (current != null) {
       System.out.println(current.item);
       current = current.next;
@@ -122,13 +168,13 @@ public class DoublyLinkedList<T> extends Card {
   public void addEndNode(T endNewNode) {
     Node<T> newNode = new Node(endNewNode);
 
-    if (head == null) {
+    if (getHead() == null) {
 
       addNode(endNewNode);
 
     } else {
       Node<T> temp = new Node();
-      temp = head;
+      temp = getHead();
       while (temp.next != null) {
         temp = temp.next;
       }
@@ -143,10 +189,10 @@ public class DoublyLinkedList<T> extends Card {
 
   public void addNodeStart(T newNodeStart) {
     Node<T> newNode = new Node(newNodeStart);
-    if (head == null) {
-      newNode = head;
+    if (getHead() == null) {
+      newNode = getHead();
     } else {
-      newNode.setNext(head);
+      newNode.setNext(getHead());
       head = newNode;
     }
     size++;
@@ -154,35 +200,39 @@ public class DoublyLinkedList<T> extends Card {
   
   
   public T get (int index) {
-    
-    int length = size();
-    T data = null;
-    Node <T> current = head;
-    if (index<length && index >=0) {
-      current = head;
-      for (int i = 0; i <index; i++) {
-        current = current.getNext();
-        data = current.item;
-      }
+	    
+	    int length = size();
+	    
+	    Node <T> current = getHead();
+	    if (index<=length && index >=0) {
+	      current = getHead();
+	      for (int i = 0; i <index-1; i++) {
+	        current = current.getNext();
+	        data = current.item;
+	        System.out.println(data);
+	      }
 
-    }
-    return data;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  }
+	    }
+	    return data;  
+	    
+	  }
   
 
   public int size() {
     return size;
   }
+
+
+
+public Node  getHead() {
+	return head;
+}
+
+
+
+public Node getTail() {
+	return tail;
+}
 
 
 
