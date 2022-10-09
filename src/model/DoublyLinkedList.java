@@ -8,13 +8,24 @@ import java.util.ListIterator;
 
 public class DoublyLinkedList<T> extends Card {
 
-  class Node<type> {
+  public class Node<type> {
 
     type item;
     Node<type> previous, next = null;
 
+    
 
-    public Node<type> getNext() {
+    public Node<type> getPrevious() {
+		return previous;
+	}
+
+
+	public void setPrevious(Node<type> previous) {
+		this.previous = previous;
+	}
+
+
+	public Node<type> getNext() {
       return next;
     }
 

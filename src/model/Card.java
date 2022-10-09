@@ -6,6 +6,8 @@ public class Card {
 
   private String suit;
   private int rank;
+public Card next;
+public Card prev;
 
 
   public Card(int rank, String suit) {

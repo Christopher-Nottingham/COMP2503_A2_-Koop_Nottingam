@@ -1,5 +1,6 @@
 package application;
 
+import controller.Shuffler;
 import model.Card;
 import model.CardDeck;
 
@@ -11,7 +12,6 @@ public class AppDriver {
     CardDeck cd = new CardDeck();
     cd.createDeck();
     cd.printCardDeck();
-    
     
    
     

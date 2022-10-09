@@ -1,5 +1,6 @@
 package model;
 import model.Card;
+import model.DoublyLinkedList.Node;
 
 
 
@@ -72,4 +73,5 @@ public void createDeck() {
   public void printCardDeck() {
     linkedListCards.printNodes();
   }
+  
 }
