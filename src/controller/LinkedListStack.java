@@ -27,9 +27,12 @@ public class LinkedListStack<T> implements StackInterface<T> {
 		
 	}
 	
-	private int size;
+	private int size; //size of list
 	private StackNode <T> top; // creates top node
 	
+	/**
+	 * Constructor
+	 */
 	public LinkedListStack() {
 		size=0;
 		top = null;
@@ -58,15 +61,6 @@ public class LinkedListStack<T> implements StackInterface<T> {
 	
 		
 	}
-
-	/**
-	 * Peek method used to define the top of the stack
-	 */
-//	@Override
-//	public T peek() {
-//		if (isEmpty())throw new EmptyStackException();
-//		return top.data;
-//	}
 
 	/**
 	 * isEmpty method checks if the stack is empty

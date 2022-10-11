@@ -1,72 +1,27 @@
 package controller;
 
 
-
-import model.Card;
 import model.CardDeck;
-import model.DoublyLinkedList;
-import model.*;
-
-import model.DoublyLinkedList.Node;
-import model.*;
-import java.util.ArrayList;
-
-
-
-
-
 import java.util.Collections;
-import model.CardDeck;
-import model.Card;
 
+
+/**
+ * 
+ * @author Ethan and Christopher
+ *
+ */
 public class Shuffler extends CardDeck {
-	
-	
-	
-
-	
-
-
-	public Card head;
-    public Card tail;
-    public Card current;
     
 
-    public ArrayList <Card> deck1 = new ArrayList<Card>(); 
 
     private CardDeck shuffledDeck = new CardDeck();
-    
-    
-
-    
-    
-    public void toArrayList() {
-    	
-    }
-    
-    
-    public void swap (Card a, Card b) {
-    	
-    	
-    	    	//Collections.swap(cardDeck, a, b);
-    	
-    	
-    	
-    	
-    	
-	}
-    
-    
-    
-	
-
-
-
-
-
 		
 
-
+    /**
+     * Shuffle Method
+     * Gets the index's of two random cards from a deck.
+     * Swaps the two cards, and repeats until all cards have been swapped.  
+     */
 	public void shuffle(){
 
 		for (int i=0; i<52; i++) {
@@ -76,71 +31,11 @@ public class Shuffler extends CardDeck {
 		}
 		
 
-		System.out.println(shuffledDeck.deck.get(0) + "\n" + shuffledDeck.deck.get(1) + "\n" + shuffledDeck.deck.get(2) + "\n" + shuffledDeck.deck.get(3) + "\n" + shuffledDeck.deck.get(4));
-
-
-
-//		CardDeck shuffledDeck = new CardDeck();
-
-		
-		
-//		shuffledDeck.createDeck();
-		
-	//	tail = shuffledDeck.linkedListCards.getTail();
-	//	head = shuffledDeck.linkedListCards.getHead();
-		
-//		shuffledDeck.printCardDeck();
-		
-		
-		
-
-		
-		//System.out.println(head.item);
-		
-//		System.out.println("/n/n/n");
-//		shuffledDeck.removeEndNode();
-//		shuffledDeck.removeEndNode();
-//		shuffledDeck.removeEndNode();
-
-//		
-//	 shuffledDeck = new CardDeck();
-//		
-//		
-//		
-//		shuffledDeck.createDeck();
-//		
-//	//	tail = shuffledDeck.linkedListCards.getTail();
-//	//	head = shuffledDeck.linkedListCards.getHead();
-//		
-
-//		shuffledDeck.printCardDeck();
-
-//	
-		
-
-//		
-//		
-//		
-//		
-//		//System.out.println(head.item);
-//		
-//		System.out.println("/n/n/n");
-////		shuffledDeck.removeEndNode();
-////		shuffledDeck.removeEndNode();
-////		shuffledDeck.removeEndNode();
-////		shuffledDeck.printCardDeck();
-////	
-//		
+		System.out.println(shuffledDeck.deck.get(0) + "\n" + shuffledDeck.deck.get(1) + "\n" + shuffledDeck.deck.get(2) + "\n" + shuffledDeck.deck.get(3) + "\n" + shuffledDeck.deck.get(4)); // prints top 5 cards
 
 	        
 
 }
-
-
-	@Override
-	public String toString() {
-		return "Shuffler [shuffledDeck=" + shuffledDeck + "]";
-	}
 
 
 	

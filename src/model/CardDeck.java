@@ -1,5 +1,6 @@
 package model;
 import controller.*;
+
 import java.util.ArrayList;
 
 import controller.DoublyLinkedList;
@@ -19,6 +20,9 @@ public class CardDeck extends DoublyLinkedList<Card> {
 	
 	
 
+	/**
+	 * CardDeck Constructor
+	 */
 	public CardDeck() {
 
 		super();
@@ -28,39 +32,18 @@ public class CardDeck extends DoublyLinkedList<Card> {
 		createDeck();
 	}
 
-//    String suits[] = {"Dimonds", "Hearts", "Spades", "Clubs"};
-//    for (int x = 0; x < 4; x++) {
-//      for (int y = 1; y <= 13; y++) {
-//    	  
-//    	  
-//    	  
-//    	  
-//       
-//    	  //aCard.setSuit(suits[x].toString());
-//    	 // System.out.println(aCard.getSuit());
-//    	  setRank(y);
-//        setSuit(suits[x]);
-//        int rank = getRank();
-//        
-//        
-//      //  String suit = aCard.getSuit().toString();
-//       // aCard = new Card(suit, rank);
-//        
-//        //System.out.println(aCard.toString());
-//        
-//        
-//       
-//        linkedListCards.addNode(aCard = new Card (y, suits[x]));
-//       // System.out.println(aCard);
-      
-    //}
- // }
+	/**
+	 * prints the card Deck
+	 */
   public void printCardDeck() {
     linkedListCards.printNodes();
   }
   
 
 
+  /**
+   * 
+   */
 	public void createDeck() {
 
 
