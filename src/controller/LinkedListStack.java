@@ -52,18 +52,21 @@ public class LinkedListStack<T> implements StackInterface<T> {
 		
 		if (isEmpty()) throw new EmptyStackException();
 		T x = top.data;
+		top = top.next;
 		size--;
 		return x;
+	
+		
 	}
 
 	/**
 	 * Peek method used to define the top of the stack
 	 */
-	@Override
-	public T peek() {
-		if (isEmpty())throw new EmptyStackException();
-		return top.data;
-	}
+//	@Override
+//	public T peek() {
+//		if (isEmpty())throw new EmptyStackException();
+//		return top.data;
+//	}
 
 	/**
 	 * isEmpty method checks if the stack is empty

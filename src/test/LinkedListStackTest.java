@@ -28,8 +28,9 @@ class LinkedListStackTest {
 		testStack.push(t5);
 		
 		testStack.pop();
+		testStack.pop();
 		
-		assertEquals(t5, testStack.pop());
+		assertEquals(t3, testStack.pop());
 	}
 	
 	@Test

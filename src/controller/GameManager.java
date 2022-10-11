@@ -108,14 +108,14 @@ public class GameManager {
 			int player1Result;
 			int player2Result;
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < shuffler.deck.size(); i++) {
 
 				player1Cards.push(shuffler.deck.get(i));
 				shuffler.deck.remove(i);
 
 			}
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < shuffler.deck.size(); i++) {
 				player2Cards.push(shuffler.deck.get(i));
 				shuffler.deck.remove(i);
 			}
