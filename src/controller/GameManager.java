@@ -21,12 +21,13 @@ public class GameManager {
 
 	private boolean flag = true;
 	private char choice;
-	
+
 	private int menuChoice;
 
 	private int mainMenuChoice;
 
 	private Shuffler shuffler;
+	private int toDeal;
 
 	private CardDeck deckOfCards;
 
@@ -46,11 +47,11 @@ public class GameManager {
 		while (flag == true) {
 
 			menu.printMainMenu();
-			
+
 			menuChoice = gameReader.nextInt();
 
 			if (menuChoice >= 1 && menuChoice <= 3) {
-				//return aChoice;
+				// return aChoice;
 
 			} else {
 				while (!gameReader.hasNextInt()) {
@@ -59,34 +60,31 @@ public class GameManager {
 					menuChoice = gameReader.nextInt();
 				}
 			}
-			
+
 			// print main menu
 
 			switch (menuChoice) {
-			case 1: {
+			case 1:
 				startGame();
-				menu.printMainMenu();
-				// playGame();
 
-			}
+				break;
+			// playGame();
 
-			case 2: {
+			case 2:
 				shuffler.shuffle();
 				System.out.println("The deck has been shuffled");
-				menu.printMainMenu();
 
 				// shuffleCards();
 				flag = true;
+				break;
 
-			}
-
-			case 3: {
+			case 3:
 				// wait(2000);
 				System.out.println("Thank you for playing");
 				System.out.println("Exiting the game......");
 
 				flag = false;
-			}
+				break;
 
 			}
 
@@ -95,31 +93,30 @@ public class GameManager {
 
 	private void startGame() {
 
+		Scanner menuScanner = new Scanner(System.in);
 		Scanner dealNumber = new Scanner(System.in);
 
+		boolean playAgain = true;
 		System.out.println("Let the games begin!!!\n\n");
-		System.out.println("How many cards would you like to deal");
 
-		int toDeal;
-		int counter = 0;
-		toDeal = dealNumber.nextInt();
+		while (playAgain == true) {
+			System.out.println("How many cards would you like to deal");
 
 		if (dealNumber.hasNextInt()) {
 			toDeal = dealNumber.nextInt();
-
-			// dealNumber.nextInt();
 			int player1Result;
 			int player2Result;
 
-			for (int i = 0; i < 26; i++) {
+			for (int i = 0; i < 5; i++) {
 
 				player1Cards.push(shuffler.deck.get(i));
 				shuffler.deck.remove(i);
 
 			}
 
-			for (int i = 0; i < shuffler.deck.size(); i++) {
+			for (int i = 0; i < 5; i++) {
 				player2Cards.push(shuffler.deck.get(i));
+				shuffler.deck.remove(i);
 			}
 
 			popCard = player1Cards.pop();
@@ -127,7 +124,7 @@ public class GameManager {
 
 			anotherPopCard = player2Cards.pop();
 			player2Result = anotherPopCard.getRank();
-
+			int counter = 0;
 			while (counter != toDeal) {
 				System.out.println("\nPlayer 1 has dealed a " + popCard.toString());
 				System.out.println("Player 2 has dealed card: " + anotherPopCard.toString() + "\n");
@@ -139,14 +136,37 @@ public class GameManager {
 				counter++;
 
 			}
-		} else {
-			while (!(toDeal >= 1) && !(dealNumber.hasNextInt())) {
-				System.out.println("Please enter an integer value greater than 0");
-				System.out.println("Enter your choice");
-				toDeal = dealNumber.nextInt();
 
+			if (player1Result > player2Result) {
+				System.out.println("Player 1 wins!!!");
+			} else if (player2Result > player1Result) {
+				System.out.println("Player 2 wins!!!");
+			} else {
+				System.out.println("There was a tie");
+			}
+
+			System.out.println("Would you like to play again? (Y/N)");
+			char choice = menuScanner.next().charAt(0);
+
+			if (choice == 'y') {
+				playAgain = true;
+				if(player1Cards.isEmpty()||player2Cards.isEmpty()) {
+				deckOfCards.createDeck();
+				}
+				
+				
+			} else {
+				playAgain = false;
+			}
+
+		} else {
+			while (toDeal > 0 && !dealNumber.hasNextInt()) {
+				System.out.println("Please enter a integer value greater than 0");
+				System.out.println("Enter your choice: ");
+				toDeal = dealNumber.nextInt();
 			}
 		}
 
-	}
+	}}
+
 }

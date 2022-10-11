@@ -40,7 +40,7 @@ public class LinkedListStack<T> implements StackInterface<T> {
 	 */
 	@Override
 	public void push(T x) {
-		++size;
+		size++;
 		top = new StackNode<T> (x, top);
 	}
 
