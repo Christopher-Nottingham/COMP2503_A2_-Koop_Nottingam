@@ -4,238 +4,221 @@ package controller;
 
 import java.util.ListIterator;
 
-import controller.DoublyLinkedList.Node;
+
 import model.Card;
 import model.CardDeck;
 
 
 
-public class DoublyLinkedList<T>   {
+public class DoublyLinkedList<T> {
 
-  public class Node<type> {
+	private Node<T> current;
 
-    type item;
-    Node<type> previous, next = null;
+	private Node<T> head;
+	private Node<T> tail;
+	private int size;
 
+	public DoublyLinkedList() {
+		this.size = 0;
+	}
 
-    public Node<type> getNext() {
-      return next;
-    }
+	private T data;
 
+	public void addNode(T nodeTobeAdded) {
+		Node<T> newNode = new Node(nodeTobeAdded);
+		if (getHead() == null) {
 
-    public void setNext(Node<type> next) {
-      this.next = next;
-    }
+			head = tail = newNode;
+			getHead().previous = null;
+			tail.next = null;
 
+		} else {
+			tail.next = newNode;
+			newNode.previous = tail;
+			tail = newNode;
+			tail.next = null;
 
-    public Node(type item) {
-      this.item = item;
-    }
+		}
+		size++;
 
-    public Node() {
+	}
 
-    }
+	public void removeNodePostion(int index) {
+		current = head;
+		for(int i = 0; i < index; i++) {
+			current = current.next;
+		}
+		
+		T removalNodeData = current.item; 
+		
+		current.previous.next = null;
+		
 
+	}
 
+	public void removeNode(Node<T> nodeToRemove) {
 
-  }
+		T currentNodeData;
 
-  
-  private Node<T> current;
+		if (getHead() == null) {
+			System.out.println("The list is empty ");
 
-  private Node<T> head;
-  private Node<T> tail;
-  private T data;
-  private int size;
+		}
 
-  public DoublyLinkedList() {
-    this.size = 0;
-  }
+		else {
+			if (head != tail) {
+				Node<T> currentNode = head;
+				Node newNode = new Node();
+				while (head != null) {
+					if (head.item == nodeToRemove.item) {
+						// currentNode.item== nodeToRemove.item
+						// Saveing the item data
+						currentNodeData = currentNode.item;
+						// The previous fild of the node to delete is set to current node
+						newNode.previous = currentNode;
 
+						// the next node of current node is equal to the nod
+						currentNode.next = newNode.previous;
 
+						// getting the node after the newNode
+						newNode = newNode.next;
 
-  public void addNode(T nodeTobeAdded) {
-    Node<T> newNode = new Node(nodeTobeAdded);
-    if (getHead() == null) {
+						head = head.next;
+						// newNode.previous = currentNode;
+						// head.next = newNode;
 
-      head = tail = newNode;
-      getHead().previous = null;
-      tail.next = null;
+					} else {
+						currentNode = head.next;
+						head = head.next;
+					}
 
-    } else {
-      tail.next = newNode;
-      newNode.previous = tail;
-      tail = newNode;
-      tail.next = null;
+				}
 
-    }
-    size++;
+			} else {
 
+				removeEndNode();
+			}
+		}
+		size--;
+	}
 
-  }
+	public void removeEndNode() {
+		if (getHead() == null) {
+			System.out.println("The list is empty ");
+		} else {
+			if (getHead() == tail) {
+				head = tail = null;
+			} else {
+				tail = tail.previous;
+				tail.next = null;
+			}
+		}
+		size--;
+	}
 
-  public void removeNode(Node<T> nodeToRemove) {
+	public void removeStartNode() {
+		if (getHead() == null) {
+			System.out.println("The list is empty ");
+		} else {
+			head = getHead().next;
+			getHead().previous.next = null;
+		}
+		size++;
 
-    if (getHead() == null) {
-      System.out.println("The list is empty ");
+	}
 
-    }
+	public Node removeNodeAtPosition(int index) {
+		Node<T> aNode = null;
+		Node<T> current = getHead();
 
-    else {
-      if (getHead() != tail) {
-        head = getHead().next;
-        getHead().previous = null;
-      } else {
-        head = tail = null;
-      }
-    }
-    size--;
-  }
+		for (int i = 0; i < index; i++) {
 
-  public void removeEndNode() {
-    if (getHead() == null) {
-      System.out.println("The list is empty ");
-    } else {
-      if (getHead() == tail) {
-        head = tail = null;
-      } else {
-        tail = tail.previous;
-        tail.next = null;
-      }
-    }
-    size --;
-  }
+			current = current.next;
 
-  public void removeStartNode() {
-    if (getHead() == null) {
-      System.out.println("The list is empty ");
-    } else {
-      head = getHead().next;
-      getHead().previous.next = null;
-    }
-    size--;
+		}
 
-  }
-  public DoublyLinkedList<T>.Node<T> removeNodeAtPosition(int index) {
-	  Node <T> aNode = null;
-	  Node <T> current = getHead();
-	  
-	  for (int i = 0; i < index; i++) {
-		  
-		  current = current.next;
-		  
-	  }
-	  
-	  Node<T> theCardToDelete = current;
-	  theCardToDelete.previous.next=null;
-	  
-	  
-	  return theCardToDelete;
-	  
-	
+		Node<T> theCardToDelete = current;
+		current.next.previous = null;
 
-	  
-	 
-	  
-	  
-	  
+		size--;
 
-    }
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	//return aCard;
-	  
-  
-  
-  
-  
-  
+		removeNode(theCardToDelete);
+		return theCardToDelete;
 
+	}
 
-  public void printNodes() {
-    Node<T> current = getHead();
-    while (current != null) {
-      System.out.println(current.item);
-      current = current.next;
-    }
-  }
+	// return aCard;
 
-  public void addEndNode(T endNewNode) {
-    Node<T> newNode = new Node(endNewNode);
+	public void printNodes() {
+		Node<T> current = getHead();
+		while (current != null) {
+			System.out.println(current.item);
+			current = current.next;
+		}
+	}
 
-    if (getHead() == null) {
+	public void addEndNode(T endNewNode) {
+		Node<T> newNode = new Node(endNewNode);
 
-      addNode(endNewNode);
+		if (getHead() == null) {
 
-    } else {
-      Node<T> temp = new Node();
-      temp = getHead();
-      while (temp.next != null) {
-        temp = temp.next;
-      }
-      temp.next = newNode;
-      newNode.previous = temp;
-    }
+			addNode(endNewNode);
 
-    size++;
-  }
+		} else {
+			Node<T> temp = new Node();
+			temp = getHead();
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			newNode.previous = temp;
+		}
 
+		size++;
+	}
 
+	public void addNodeStart(T newNodeStart) {
+		Node<T> newNode = new Node(newNodeStart);
+		if (getHead() == null) {
+			newNode = getHead();
+		} else {
+			newNode.setNext(getHead());
+			head = newNode;
+		}
+		size++;
+	}
 
-  public void addNodeStart(T newNodeStart) {
-    Node<T> newNode = new Node(newNodeStart);
-    if (getHead() == null) {
-      newNode = getHead();
-    } else {
-      newNode.setNext(getHead());
-      head = newNode;
-    }
-    size++;
-  }
-  
-  
-  public T get (int index) {
-	    
-	    int length = size();
-	    
-	    Node <T> current = getHead();
-	    if (index<=length && index >=0) {
-	      current = getHead();
-	      for (int i = 0; i <index-1; i++) {
-	        current = current.getNext();
-	        data = current.item;
-	        System.out.println(data);
-	      }
+	public T get(int index) {
 
-	    }
-	    return data;  
-	    
-	  }
-  
+		int length = size();
 
-  public int size() {
-    return size;
-  }
+		Node<T> current = getHead();
+		if (index <= length && index >= 0) {
+			current = getHead();
+			for (int i = 0; i < index - 1; i++) {
+				current = current.getNext();
+				data = current.item;
+				System.out.println(data);
+			}
 
+		}
+		return data;
 
+	}
 
-public Node  getHead() {
-	return head;
-}
+	public int size() {
+		return size;
+	}
 
+	public Node getHead() {
+		return head;
+	}
 
-
-public Node getTail() {
-	return tail;
-}
-
-
+	public Node getTail() {
+		return tail;
+	}
 
 }
+
 
 
