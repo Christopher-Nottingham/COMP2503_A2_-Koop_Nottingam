@@ -18,8 +18,7 @@ public class Card {
 
   public Card() {
 	// TODO Auto-generated constructor stub
-	  //this.rank=1;
-	  //this.suit="Ace of";
+	  
 }
 
 
