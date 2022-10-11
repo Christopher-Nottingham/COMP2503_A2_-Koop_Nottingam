@@ -19,13 +19,10 @@ public class MenuDriver {
 	}
 
 	public void printMainMenu() {
-
 		System.out.println("Select one of these options: ");
 		System.out.println("\t1. Play War Game");
-		System.out.println("\t2. ShuffleCards");
+		System.out.println("\t2. Shuffle Cards");
 		System.out.println("\t3. Exit Game");
-		
-
 		System.out.println("Enter your choice: ");
 		
 		

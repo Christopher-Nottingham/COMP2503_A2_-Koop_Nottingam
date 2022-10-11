@@ -1,7 +1,12 @@
 package controller;
 
 //import controller.DoublyLinkedList.Node;
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ * @param <type>
+ */
 public class Node<type> {
 
     type item;

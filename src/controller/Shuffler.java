@@ -12,8 +12,6 @@ import java.util.Collections;
  */
 public class Shuffler extends CardDeck {
     
-
-
     private CardDeck shuffledDeck = new CardDeck();
 		
 
@@ -27,16 +25,23 @@ public class Shuffler extends CardDeck {
 		for (int i=0; i<52; i++) {
 			int card = (int) (Math.random() * (52-i));
 			int card1 = (int) (Math.random() * (52-i));		
-			Collections.swap(shuffledDeck.deck, card, card1);	
+			Collections.swap( deck, card, card1);	
 		}
 		
+		System.out.println(deck.get(0) + "\n" + deck.get(1) + "\n" + deck.get(2) + "\n" + deck.get(3) + "\n" + deck.get(4));        
 
-		System.out.println(shuffledDeck.deck.get(0) + "\n" + shuffledDeck.deck.get(1) + "\n" + shuffledDeck.deck.get(2) + "\n" + shuffledDeck.deck.get(3) + "\n" + shuffledDeck.deck.get(4)); // prints top 5 cards
-
-	        
 
 }
 
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public String toString() {
+		return "Shuffler [shuffledDeck=" + deck + "]";
+	}
 
 	
 

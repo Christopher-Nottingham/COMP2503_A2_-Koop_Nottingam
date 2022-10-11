@@ -26,7 +26,6 @@ public class CardDeck extends DoublyLinkedList<Card> {
 	public CardDeck() {
 
 		super();
-
 		linkedListCards = new DoublyLinkedList<Card>();
 		deck = new ArrayList<>();
 		createDeck();
@@ -41,20 +40,15 @@ public class CardDeck extends DoublyLinkedList<Card> {
   
 
 
-  /**
-   * 
-   */
 	public void createDeck() {
 
 
 		String[] suits = { "Spades", "Diamond", "Clubs", "Hearts" };
 
-		/*
-		 * The for loop creates a whole new deck based on their suit and rank
-		 */
-		for (int i = 0; i < 4; i++) {
-			for (int j = 1; j <= 13; j++) {
-				aCard = new Card(j, suits[i]);
+		
+		for (int x = 0; x < 4; x++) {
+			for (int y = 1; y <= 13; y++) {
+				aCard = new Card(y, suits[x]);
 				deck.add(aCard);
 				linkedListCards.addNode(aCard);
 			}

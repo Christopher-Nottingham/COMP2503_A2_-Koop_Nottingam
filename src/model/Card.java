@@ -21,6 +21,10 @@ public Card prev;
     this.suit = suit;
 
   }
+  
+  public Card() {
+	  
+  }
 
 
 /**

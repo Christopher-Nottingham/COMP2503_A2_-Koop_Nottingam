@@ -5,6 +5,7 @@ import java.util.Scanner;
 import model.Card;
 import model.CardDeck;
 import view.MenuDriver;
+import model.*;
 
 public class GameManager {
 
@@ -41,8 +42,17 @@ public class GameManager {
 		gameReader = new Scanner(System.in);
 		shuffler = new Shuffler();
 	}
+	
+	
+	
+	public void emptyList() {
+		if (player1Cards.isEmpty() && player2Cards.isEmpty()) {
+			deckOfCards.createDeck();
+		}
+	}
 
 	public void loadApp() {
+		menu.welcomeMsg();
 
 		while (flag == true) {
 
@@ -104,7 +114,23 @@ public class GameManager {
 			System.out.println("How many cards would you like to deal");
 
 		if (dealNumber.hasNextInt()) {
-			toDeal = dealNumber.nextInt();
+		
+			if(toDeal< 25) {
+				
+				toDeal = dealNumber.nextInt();
+				
+			} else {
+				while (toDeal>=25) {
+					System.out.println("Please enter a integer value bigger than 0 and less than 26.");
+					System.out.println("Enter your choice:");
+					toDeal = dealNumber.nextInt();
+				
+				}
+					
+			}
+			
+			dealNumber = dealNumber.reset();
+			
 			int player1Result;
 			int player2Result;
 
@@ -114,11 +140,12 @@ public class GameManager {
 				shuffler.deck.remove(i);
 
 			}
-
+			
 			for (int i = 0; i < shuffler.deck.size(); i++) {
 				player2Cards.push(shuffler.deck.get(i));
 				shuffler.deck.remove(i);
 			}
+			shuffler.createDeck();
 
 			popCard = player1Cards.pop();
 			player1Result = popCard.getRank();
@@ -127,7 +154,7 @@ public class GameManager {
 			player2Result = anotherPopCard.getRank();
 			int counter = 0;
 			while (counter != toDeal) {
-				System.out.println("\nPlayer 1 has dealed a " + popCard.toString());
+				System.out.println("\nPlayer 1 has dealed card: " + popCard.toString());
 				System.out.println("Player 2 has dealed card: " + anotherPopCard.toString() + "\n");
 
 				popCard = player1Cards.pop();
@@ -151,18 +178,13 @@ public class GameManager {
 
 			if (choice == 'y') {
 				playAgain = true;
-				if(player1Cards.isEmpty()||player2Cards.isEmpty()) {
-				deckOfCards.createDeck();
-				}
-				
-				
 			} else {
 				playAgain = false;
 			}
 
 		} else {
-			while (toDeal > 0 && !dealNumber.hasNextInt()) {
-				System.out.println("Please enter a integer value greater than 0");
+			while (toDeal > 0 && !dealNumber.hasNextInt() && toDeal <25) {
+				System.out.println("Please enter a integer value greater than 0 but less than 26");
 				System.out.println("Enter your choice: ");
 				toDeal = dealNumber.nextInt();
 			}
