@@ -6,7 +6,11 @@ import model.Card;
 import model.CardDeck;
 import view.MenuDriver;
 import model.*;
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 public class GameManager {
 
 	private MenuDriver menu;

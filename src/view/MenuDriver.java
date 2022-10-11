@@ -1,7 +1,11 @@
 package view;
 
 import java.util.*;
-
+/**
+ * 
+ * @author christopher nottingham
+ *
+ */
 public class MenuDriver {
 
 	Scanner input;

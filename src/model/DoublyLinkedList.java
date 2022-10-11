@@ -5,7 +5,12 @@ package model;
 import java.util.ListIterator;
 
 
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ * @param <T>
+ */
 public class DoublyLinkedList<T> extends Card {
 
   public class Node<type> {

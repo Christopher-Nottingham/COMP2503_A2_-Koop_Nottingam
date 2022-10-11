@@ -2,12 +2,18 @@
 package application;
 
 import controller.Shuffler;
+
 import model.Card;
 
 import java.util.ArrayList;
 
 import controller.*;
 import model.CardDeck;
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 
 public class AppDriver {
 

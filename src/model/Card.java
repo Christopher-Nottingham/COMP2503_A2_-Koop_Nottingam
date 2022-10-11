@@ -1,7 +1,11 @@
 package model;
 
 
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 public class Card {
 
   private String suit;

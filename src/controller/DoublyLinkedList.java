@@ -9,7 +9,12 @@ import model.Card;
 import model.CardDeck;
 
 
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ * @param <T>
+ */
 public class DoublyLinkedList<T> {
 
 	private Node<T> current;
