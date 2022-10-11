@@ -31,7 +31,7 @@ public class LinkedListStack<T> implements StackInterface<T> {
 	private StackNode <T> top; // creates top node
 	
 	/**
-	 * Constructor
+	 * LinkedListStack Constructor
 	 */
 	public LinkedListStack() {
 		size=0;

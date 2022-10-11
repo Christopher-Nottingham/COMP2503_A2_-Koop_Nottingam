@@ -9,7 +9,12 @@ import model.Card;
 import model.CardDeck;
 
 
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ * @param <T>
+ */
 public class DoublyLinkedList<T> {
 
 	private Node<T> current;
@@ -18,12 +23,19 @@ public class DoublyLinkedList<T> {
 	private Node<T> tail;
 	private int size;
 
+	/**
+	 * DLL Constructor
+	 */
 	public DoublyLinkedList() {
 		this.size = 0;
 	}
 
 	private T data;
 
+	/**
+	 * Adds a card to the DLL.
+	 * @param nodeTobeAdded the node to be added. 
+	 */
 	public void addNode(T nodeTobeAdded) {
 		Node<T> newNode = new Node(nodeTobeAdded);
 		if (getHead() == null) {
@@ -43,6 +55,10 @@ public class DoublyLinkedList<T> {
 
 	}
 
+	/**
+	 * Removes the card position.
+	 * @param index index of requested position to be removed. 
+	 */
 	public void removeNodePostion(int index) {
 		current = head;
 		for(int i = 0; i < index; i++) {
@@ -56,6 +72,10 @@ public class DoublyLinkedList<T> {
 
 	}
 
+	/**
+	 * Removes a card from the DLL.
+	 * @param nodeToRemove node to be removed from DLL.
+	 */
 	public void removeNode(Node<T> nodeToRemove) {
 
 		T currentNodeData;
@@ -102,6 +122,9 @@ public class DoublyLinkedList<T> {
 		size--;
 	}
 
+	/**
+	 * Removes a card from the end of the DLL.
+	 */
 	public void removeEndNode() {
 		if (getHead() == null) {
 			System.out.println("The list is empty ");
@@ -116,6 +139,9 @@ public class DoublyLinkedList<T> {
 		size--;
 	}
 
+	/**
+	 * Removes a card from the start of the DLL.
+	 */
 	public void removeStartNode() {
 		if (getHead() == null) {
 			System.out.println("The list is empty ");
@@ -127,6 +153,11 @@ public class DoublyLinkedList<T> {
 
 	}
 
+	/**
+	 * Removes a card from a certain position. 
+	 * @param index of the card to be removed
+	 * @return the card that is removed.
+	 */
 	public Node removeNodeAtPosition(int index) {
 		Node<T> aNode = null;
 		Node<T> current = getHead();
@@ -147,8 +178,11 @@ public class DoublyLinkedList<T> {
 
 	}
 
-	// return aCard;
+	
 
+	/**
+	 * Prints the cards.
+	 */
 	public void printNodes() {
 		Node<T> current = getHead();
 		while (current != null) {
@@ -157,6 +191,10 @@ public class DoublyLinkedList<T> {
 		}
 	}
 
+	/**
+	 * Adds a card to the start of the DLL.
+	 * @param endNewNode Card to be added to the end.
+	 */
 	public void addEndNode(T endNewNode) {
 		Node<T> newNode = new Node(endNewNode);
 
@@ -177,6 +215,10 @@ public class DoublyLinkedList<T> {
 		size++;
 	}
 
+	/**
+	 * Adds a card to the start of the DLL.
+	 * @param newNodeStart Card to be added to the start of the DLL.
+	 */
 	public void addNodeStart(T newNodeStart) {
 		Node<T> newNode = new Node(newNodeStart);
 		if (getHead() == null) {
@@ -188,6 +230,11 @@ public class DoublyLinkedList<T> {
 		size++;
 	}
 
+	/**
+	 * Gets a certain card
+	 * @param index of the card wanted
+	 * @return card to corresponding index
+	 */
 	public T get(int index) {
 
 		int length = size();
@@ -206,14 +253,26 @@ public class DoublyLinkedList<T> {
 
 	}
 
+	/**
+	 * checks the size of the DLL.
+	 * @return the size of the DLL.
+	 */
 	public int size() {
 		return size;
 	}
 
+	/**
+	 * getter method used to get the Card at the top of the DLL.
+	 * @return the top card. 
+	 */
 	public Node getHead() {
 		return head;
 	}
 
+	/**
+	 * Getter method used to get the Card at the bottom of the DLL.
+	 * @return the bottom Card.
+	 */
 	public Node getTail() {
 		return tail;
 	}

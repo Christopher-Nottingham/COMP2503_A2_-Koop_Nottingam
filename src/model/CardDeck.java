@@ -1,12 +1,18 @@
 package model;
 import controller.*;
 
+
 import java.util.ArrayList;
 
 import controller.DoublyLinkedList;
 import model.Card;
-import model.DoublyLinkedList.Node;
+import controller.Node;
 
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 public class CardDeck extends DoublyLinkedList<Card> {
 
 	private Card aCard;
@@ -21,7 +27,7 @@ public class CardDeck extends DoublyLinkedList<Card> {
 	
 
 	/**
-	 * CardDeck Constructor
+	 * CardDeck Constructor.
 	 */
 	public CardDeck() {
 
@@ -31,8 +37,9 @@ public class CardDeck extends DoublyLinkedList<Card> {
 		createDeck();
 	}
 
+
 	/**
-	 * prints the card Deck
+	 * prints the card Deck.
 	 */
   public void printCardDeck() {
     linkedListCards.printNodes();
@@ -40,6 +47,9 @@ public class CardDeck extends DoublyLinkedList<Card> {
   
 
 
+  /**
+   * creates a Card Deck.
+   */
 	public void createDeck() {
 
 

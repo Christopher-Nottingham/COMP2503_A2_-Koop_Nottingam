@@ -6,7 +6,11 @@ import model.Card;
 import model.CardDeck;
 import view.MenuDriver;
 import model.*;
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 public class GameManager {
 
 	private MenuDriver menu;
@@ -32,6 +36,9 @@ public class GameManager {
 
 	private CardDeck deckOfCards;
 
+	/**
+	 * GameManager Constructor
+	 */
 	public GameManager() {
 		deckOfCards = new CardDeck();
 		menu = new MenuDriver();
@@ -44,13 +51,19 @@ public class GameManager {
 	}
 	
 	
-	
+	/**
+	 * Checks if the players lists are empty
+	 */
 	public void emptyList() {
 		if (player1Cards.isEmpty() && player2Cards.isEmpty()) {
 			deckOfCards.createDeck();
 		}
 	}
 
+	/**
+	 * Main method to the game.
+	 * Loads all required methods to run the program. 
+	 */
 	public void loadApp() {
 		menu.welcomeMsg();
 
@@ -61,7 +74,6 @@ public class GameManager {
 			menuChoice = gameReader.nextInt();
 
 			if (menuChoice >= 1 && menuChoice <= 3) {
-				// return aChoice;
 
 			} else {
 				while (!gameReader.hasNextInt()) {
@@ -71,26 +83,23 @@ public class GameManager {
 				}
 			}
 
-			// print main menu
 
 			switch (menuChoice) {
 			case 1:
 				startGame();
 
 				break;
-			// playGame();
 
 			case 2:
 				System.out.println("The deck has been shuffled, printing top 5 cards:");
 				shuffler.shuffle();
 				
 
-				// shuffleCards();
 				flag = true;
 				break;
 
 			case 3:
-				// wait(2000);
+				
 				System.out.println("Thank you for playing");
 				System.out.println("Exiting the game......");
 
@@ -102,6 +111,12 @@ public class GameManager {
 		}
 	}
 
+	/**
+	 * Runs the game.
+	 * Asks the user how many cards to deal to each player.
+	 * Then deals said number to each player.
+	 * Then decides the winner by calculating which player had the most wins. 
+	 */
 	private void startGame() {
 
 		Scanner menuScanner = new Scanner(System.in);
@@ -178,7 +193,7 @@ public class GameManager {
 
 			if (choice == 'y') {
 				playAgain = true;
-			} else {
+			} else if (choice == 'n') {
 				playAgain = false;
 			}
 

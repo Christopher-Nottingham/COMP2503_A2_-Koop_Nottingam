@@ -1,7 +1,11 @@
 package model;
 
 
-
+/**
+ * 
+ * @author Christopher Nottingham
+ *
+ */
 public class Card {
 
   private String suit;
@@ -22,6 +26,9 @@ public Card prev;
 
   }
   
+  /**
+   * Copy constructor.
+   */
   public Card() {
 	  
   }

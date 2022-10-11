@@ -7,7 +7,7 @@ import java.util.Collections;
 
 /**
  * 
- * @author Ethan and Christopher
+ * @author Ethan Koop
  *
  */
 public class Shuffler extends CardDeck {
@@ -36,7 +36,7 @@ public class Shuffler extends CardDeck {
 
 
 	/**
-	 * 
+	 * toString method used to print shuffled cards. 
 	 */
 	@Override
 	public String toString() {
