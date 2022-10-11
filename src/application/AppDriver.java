@@ -12,25 +12,26 @@ public class AppDriver {
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-//ArrayList <Integer> i = new ArrayList<>();
-//i.add(1);
-//i.add(2);
-//
-//
-//System.out.println(i.get(0));
-//System.out.println(i);
-	  
-	  
-	  
-	  
-CardDeck cd = new CardDeck();
-Shuffler s = new Shuffler ();
-//System.out.println(cd.deck.toString());
 
-System.out.println("Original Card Deck");
-System.out.println(cd.deck.toString());
-System.out.println("\nShuffled Deck \n");
-s.shuffle();
+	  
+	  GameManager g = new GameManager();
+	  g.loadApp();
+	  
+	  
+//CardDeck cd = new CardDeck();
+//Shuffler s = new Shuffler ();
+//
+//
+//System.out.println("Original Card Deck");
+//System.out.println(cd.deck.toString());
+//System.out.println("\nShuffled Deck \n");
+//s.shuffle();
+
+
+//System.out.println("Original Card Deck");
+//System.out.println(cd.deck.toString());
+//System.out.println("\nShuffled Deck \n");
+//s.shuffle();
 
 //cd.createDeck();
 
@@ -59,8 +60,8 @@ s.shuffle();
 	  
 
 	  
-	  Shuffler sc = new Shuffler();
-	  sc.shuffle();
+//	  Shuffler sc = new Shuffler();
+//	  sc.shuffle();
 	 
 	  
 
@@ -73,6 +74,7 @@ s.shuffle();
     
    
     
+
   }
 
 }
