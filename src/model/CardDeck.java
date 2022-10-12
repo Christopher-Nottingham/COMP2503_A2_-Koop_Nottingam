@@ -9,7 +9,7 @@ import model.Card;
 import controller.Node;
 
 /**
- * 
+ * A Card Deck Class
  * @author Christopher Nottingham
  *
  */

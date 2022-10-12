@@ -13,9 +13,19 @@ import model.CardDeck;
  * 
  * @author Christopher Nottingham
  *
- * @param <T>
+ * @param <T> Generic Type
  */
 public class DoublyLinkedList<T> {
+	
+	private Node<T> start; // reference to the first node of the list 
+	private Node<T> end; // reference to the last node of the list //you can keep track of the current node if you want
+	
+	
+	
+	
+	
+	
+	
 
 	private Node<T> current;
 

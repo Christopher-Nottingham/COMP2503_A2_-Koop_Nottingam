@@ -6,7 +6,7 @@ import java.util.EmptyStackException;
  * 
  * @author Ethan Koop
  *
- * @param <T>
+ * @param <T> Generic Type 
  */
 public class LinkedListStack<T> implements StackInterface<T> {
 

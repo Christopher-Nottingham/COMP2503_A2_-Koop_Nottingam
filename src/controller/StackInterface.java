@@ -3,7 +3,7 @@ package controller;
  * 
  * @author Ethan Koop
  * This is the stack interface
- * @param <T>
+ * @param <T> Generic Type
  */
 public interface StackInterface <T>{
 

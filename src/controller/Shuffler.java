@@ -25,7 +25,7 @@ public class Shuffler extends CardDeck {
 		for (int i=0; i<52; i++) {
 			int card = (int) (Math.random() * (52-i));
 			int card1 = (int) (Math.random() * (52-i));		
-			Collections.swap( deck, card, card1);	
+			Collections.swap(deck, card, card1);	
 		}
 		
 		System.out.println(deck.get(0) + "\n" + deck.get(1) + "\n" + deck.get(2) + "\n" + deck.get(3) + "\n" + deck.get(4));        

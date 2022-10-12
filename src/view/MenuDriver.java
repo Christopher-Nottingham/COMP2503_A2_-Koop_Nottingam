@@ -2,7 +2,7 @@ package view;
 
 import java.util.*;
 /**
- * 
+ * Menu Driver Class 
  * @author christopher nottingham
  *
  */
@@ -18,7 +18,6 @@ public class MenuDriver {
 	 */
 	public MenuDriver() {
 		input = new Scanner(System.in);
-
 	}
 
 	/**
